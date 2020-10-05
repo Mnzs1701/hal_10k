@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<!-- Constants -->
+	<xacro:property name="PI" value="3.1415926535897931"/>
+	
+	<!-- Scaling -->
+	<xacro:property name="scale_XYZ" value="1.0"/>
+	
+    <!--Chassis-->
+    <xacro:property name="chassisMass" value="30.0"/>
+	<xacro:property name="chassisHeight" value="0.20"/>
+	<xacro:property name="chassisLength" value="0.700"/>
+	<xacro:property name="chassisWidth" value="0.500"/>
+
+    <!--Wheel-->
+    <xacro:property name="wheelMass" value="2.00"/>
+    <xacro:property name="wheelWidth" value="0.150"/>
+	<xacro:property name="wheelRadius" value="0.150"/>
+    
+	
+</robot>

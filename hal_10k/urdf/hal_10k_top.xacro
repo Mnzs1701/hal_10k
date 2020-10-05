@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name="hal_10k" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Inertia matrices -->
+	<xacro:include filename="$(find hal_10k)/urdf/macros.xacro" />
+	
+    <!-- Robot constants and properties -->
+	<xacro:include filename="$(find hal_10k)/urdf/hal_10k_properties.xacro" />
+	
+    <!-- Gazebo aspects of the robot -->
+	<xacro:include filename="$(find hal_10k)/urdf/hal_10k_gazebo.gazebo" />
+	
+    <!-- Chassis -->
+	<xacro:include filename="$(find hal_10k)/urdf/chassis.xacro" />
+	
+    <!-- Wheel Groups -->
+	<xacro:include filename="$(find hal_10k)/urdf/wheels.xacro" />
+    <xacro:include filename="$(find hal_10k)/urdf/back_wheel.xacro" />
+    <xacro:include filename="$(find hal_10k)/urdf/front_wheel.xacro" />
+
+    <!--Initialising urdf groups-->
+    <chassis_body/>
+    <front_wheel/>
+    <back_wheel/>
+    
+   
+</robot>

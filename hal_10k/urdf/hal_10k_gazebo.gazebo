@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ros_control plugin -->
+ <!-- <gazebo>
+    <plugin name="gazebo_ros_control" 
+            filename="libgazebo_ros_control.so">
+      <robotNamespace>/hal_10k</robotNamespace>
+      <robotParam>/robot_description</robotParam>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo> -->
+
+ <!--
+    The plugin broadcasts a body's pose and rates through ROS nav_msgs::Odometry message.
+    The plugin broadcasts pose and rate of a body named "chassis" over ROS topic name "astra_rover/odom".
+  -->
+
+  <gazebo>
+    <plugin name="ground_truth"
+            filename="libgazebo_ros_p3d.so">
+      <frameName>world</frameName>
+      <bodyName>chassis</bodyName>
+      <topicName>/hal_10k/odom</topicName>
+      <updateRate>30.0</updateRate>
+    </plugin>
+  </gazebo>
+
+  <!-- Chassis -->
+  <gazebo reference="chassis">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="front_connector_link">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="left_connector_link">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="right_connector_link">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+
+ </robot>

@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="back_wheel" params="">
+
+  	<link name="left_connector_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 1.57"/>
+			<geometry>
+				<cylinder radius="0.001" length="0.001"/>
+			</geometry>	
+		</visual>
+        <inertial>
+            <inertia ixx="2.61666666667e-05" ixy="0.0" ixz="0.0" iyy="2.61666666667e-05" iyz="0.0" izz="3.6e-05"/>
+            <mass value="0.0001"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.001" length="0.001"/>
+            </geometry>
+        </collision>
+			
+	</link>
+
+    <link name="right_connector_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 1.57"/>
+			<geometry>
+				<cylinder radius="0.001" length="0.001"/>
+			</geometry>	
+		</visual>
+        <inertial>
+        <inertia ixx="2.61666666667e-05" ixy="0.0" ixz="0.0" iyy="2.61666666667e-05" iyz="0.0" izz="3.6e-05"/>
+        <mass value="0.0001"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.001" length="0.001"/>
+            </geometry>
+        </collision>	
+	</link>
+
+
+    <joint name="left_connector_joint" type="revolute">
+	<origin xyz="-0.34 ${-chassisWidth/2} 0" rpy="0 0 0"/>
+        <parent link="chassis"/>
+        <axis xyz="0 0 1"/>
+        <child link="left_connector_link"/>
+        <limit effort="1000.0" lower="-0.2" upper="0.2" velocity="0.5"/>
+        
+      </joint>
+
+    <joint name="right_connector_joint" type="revolute">
+	<origin xyz="-0.34 ${chassisWidth/2} 0" rpy="0 0 0"/>   
+	<axis xyz="0 0 1"/>     
+	<parent link="chassis"/>      
+        <child link="right_connector_link"/>
+        <limit effort="1000.0" lower="-0.2" upper="0.2" velocity="0.5"/>
+        
+      </joint>
+      
+      
+    <wheel
+		wheel_name="left_wheel"
+		wheel_conector_name="left_connector_link"
+		tY="0" aX="0" aY="1"/>
+
+
+  	<wheel
+		wheel_name="right_wheel"
+		wheel_conector_name="right_connector_link"
+		tY="1" aX="0" aY="1"/>
+
+  </xacro:macro>
+
+</robot>
